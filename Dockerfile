@@ -1,7 +1,24 @@
-FROM quay.io/keycloak/keycloak-x:16.1.1
+FROM quay.io/keycloak/keycloak-x:latest as builder
 
-COPY docker-entrypoint.sh /opt/jboss/tools
+ENV KC_METRICS_ENABLED=true
+ENV KC_FEATURES=token-exchange
+ENV KC_DB=postgres
+RUN /opt/keycloak/bin/kc.sh build
 
-WORKDIR /opt/jboss/keycloak
+FROM quay.io/keycloak/keycloak-x:latest
+COPY --from=builder /opt/keycloak/lib/quarkus/ /opt/keycloak/lib/quarkus/
+WORKDIR /opt/keycloak
 
-RUN .bin/kc.sh start-dev
+RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -keystore conf/server.keystore
+
+ENV KEYCLOAK_ADMIN=admin
+ENV KEYCLOAK_ADMIN_PASSWORD=admin
+
+ENV KC_DB_URL='jdbc:postgresql://postgres/keycloak'
+ENV KC_DB_USERNAME=postgres
+ENV KC_DB_PASSWORD=postgres
+
+ENV KC_HOSTNAME=localhost:8443
+
+
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--auto-build", "--db=postgres"]
