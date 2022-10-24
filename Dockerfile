@@ -18,7 +18,4 @@ ENV KC_DB_URL='jdbc:postgresql://postgres/keycloak'
 ENV KC_DB_USERNAME=postgres
 ENV KC_DB_PASSWORD=postgres
 
-ENV KC_HOSTNAME=localhost:8443
-
-
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--auto-build", "--db=postgres"]
