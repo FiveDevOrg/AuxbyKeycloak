@@ -39,9 +39,9 @@ file_env 'KEYCLOAK_ADMIN_PASSWORD'
 ################################################
 if [ "$DATABASE_URL" != "" ]; then
   echo "Found database configuration in DATABASE_URL=$DATABASE_URL"
-  local databaseUrl="postgres://auxby:bMkbfRMsKlSwgYrlzQ2MYnpZDBBeTVHt@dpg-cd6qn8qrrk04vothu9fg-a.frankfurt-postgres.render.com/auxby"
+  URL_DB="postgres://auxby:bMkbfRMsKlSwgYrlzQ2MYnpZDBBeTVHt@dpg-cd6qn8qrrk04vothu9fg-a.frankfurt-postgres.render.com:5432/auxby"
   regex='^postgres://([a-zA-Z0-9_-]+):([a-zA-Z0-9]+)@([a-z0-9.-]+):([[:digit:]]+)/([a-zA-Z0-9_-]+)$'
-  if [[ "$databaseUrl" =~ $regex ]]; then
+  if [[ "$URL_DB" =~ $regex ]]; then
     DB_ADDR=${BASH_REMATCH[3]}
     DB_PORT=${BASH_REMATCH[4]}
     DB_DATABASE=${BASH_REMATCH[5]}
