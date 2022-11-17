@@ -4,7 +4,8 @@
 if [ "$DATABASE_URL" != "" ]; then
     echo "Found database configuration in DATABASE_URL=$DATABASE_URL"
 
-    URL_DB="postgres://auxby:bMkbfRMsKlSwgYrlzQ2MYnpZDBBeTVHt@dpg-cd6qn8qrrk04vothu9fg-a.frankfurt-postgres.render.com:5432/auxby"
+    URL_DB="postgres://auxby:YrYxxupdPT60AS91hVyEldphN5d41oDv@dpg-cd6kvhsgqg4ek61qj850-a.frankfurt-postgres.render.com:5432/auxby_app_wr10"
+    
     regex='^postgres://([a-zA-Z0-9_-]+):([a-zA-Z0-9]+)@([a-z0-9.-]+):([[:digit:]]+)/([a-zA-Z0-9_-]+)$'
     if [[ $URL_DB =~ $regex ]]; then
         export DB_ADDR=${BASH_REMATCH[3]}
