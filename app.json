@@ -1,5 +1,5 @@
 {
-    "name": "Keycloak Deployment to Heroku - Free Dynos",
+    "name": "Keycloak Deployment to Heroku - Eco Dynos",
     "description": "Deployment of the Keycloak Identity and Access Management Solution to Heroku using a slightly adapted version of the official Docker container image",
     "keywords": [
         "identity",
@@ -23,7 +23,7 @@
         },
         "KEYCLOAK_FRONTEND_URL": {
             "description": "TODO",
-            "value": "https://keycloak-heroku-free.herokuapp.com/auth/"
+            "value": "https://keycloak-heroku-mini.herokuapp.com/auth/"
         },
         "PROXY_ADDRESS_FORWARDING": {
             "description": "Set to true since we will be running behind Heroku's load balancers",
@@ -33,7 +33,7 @@
     "formation": {
         "web": {
             "quantity": 1,
-            "size": "free"
+            "size": "Eco Dynos"
         }
     },
      "addons": [
