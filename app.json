@@ -30,12 +30,6 @@
             "value": "true"
         }
     },
-    "formation": {
-        "web": {
-            "quantity": 1,
-            "size": "Eco Dynos"
-        }
-    },
      "addons": [
         {
             "plan": "heroku-postgresql:mini"
