@@ -36,9 +36,5 @@
             "size": "free"
         }
     },
-    "addons": [
-        {
-            "plan": "heroku-postgresql:hobby-dev"
-        }
-    ]
+    "addons": []
 }
