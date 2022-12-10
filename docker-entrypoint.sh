@@ -92,6 +92,9 @@ SYS_PROPS+=" $BIND_OPTS"
 # Configuration #
 #################
 
+SYS_PROPS+="-Dkeycloak.profile.feature.token_exchange=enabled"
+SYS_PROPS+="-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled"
+
 # If the server configuration parameter is not present, append the HA profile.
 if echo "$@" | egrep -v -- '-c |-c=|--server-config |--server-config='; then
     SYS_PROPS+=" -c=standalone-ha.xml"
