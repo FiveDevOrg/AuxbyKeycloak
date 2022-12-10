@@ -185,7 +185,6 @@ fi
 ##################
 # Start Keycloak #
 ##################
-SYS_PROPS+="-Dkeycloak.profile.feature.token_exchange=enabled"
-SYS_PROPS+="-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled"
+
 exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
 exit $?
