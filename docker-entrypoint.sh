@@ -54,8 +54,9 @@ fi
 ############
 
 if [ "$KEYCLOAK_HOSTNAME" != "" ]; then
+  SYS_PROPS="-Dkeycloak.profile.feature.token_exchange=enabled -Dkeycloak.profile.feature.admin_fine_grained_authz=enabled"
     SYS_PROPS="-Dkeycloak.hostname.provider=fixed -Dkeycloak.hostname.fixed.hostname=$KEYCLOAK_HOSTNAME"
-
+	
     if [ "$KEYCLOAK_HTTP_PORT" != "" ]; then
         SYS_PROPS+=" -Dkeycloak.hostname.fixed.httpPort=$KEYCLOAK_HTTP_PORT"
     fi
