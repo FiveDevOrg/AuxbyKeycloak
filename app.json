@@ -29,10 +29,5 @@
             "description": "Set to true since we will be running behind Heroku's load balancers",
             "value": "true"
         }
-    },
-     "addons": [
-        {
-            "plan": "heroku-postgresql:mini"
-        }
-    ]
+    }
 }
