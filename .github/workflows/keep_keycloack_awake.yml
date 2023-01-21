@@ -1,0 +1,15 @@
+name: Awake Heroku Keycloak
+
+# Run between 8AM - 22PM every 2 hours 
+on:
+  schedule:
+    - cron: "10 8-22/2 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: mikeesto/heroku-awake@1.0.0
+        with:
+          URL: "https://auxby-keycloak.herokuapp.com/auth"
