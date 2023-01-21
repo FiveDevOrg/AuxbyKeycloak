@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: mikeesto/heroku-awake@1.0.0
         with:
-          URL: "https://auxby-keycloak.herokuapp.com/auth"
+          URL: "https://auxby-keycloak.herokuapp.com"
